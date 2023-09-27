@@ -1,8 +1,10 @@
 package com.mysite.sbb2.answer;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import com.mysite.sbb2.question.Question;
+import com.mysite.sbb2.user.SiteUser;
 import jakarta.persistence.*;
 
 import lombok.Getter;
@@ -22,4 +24,12 @@ public class Answer {
 
     @ManyToOne
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
+
+    private LocalDateTime modifyDate;
+
+    @ManyToMany
+    Set<SiteUser> voter;
 }
